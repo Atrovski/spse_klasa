@@ -1,0 +1,38 @@
+# Project: fesszlomki
+# Makefile created by Red Panda C++ 2.9
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = fesszlomki_private.res
+OBJ      = main.o hlavicka.o $(RES)
+LINKOBJ  = main.o hlavicka.o $(RES)
+CLEANOBJ  =  main.o hlavicka.o fesszlomki_private.res fesszlomki.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = fesszlomki.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -D__DEBUG__
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp hlavicka.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
+
+hlavicka.o: hlavicka.cpp hlavicka.h
+	$(CPP) -c hlavicka.cpp -o hlavicka.o $(CXXFLAGS) 
+
+fesszlomki_private.res: fesszlomki_private.rc 
+	$(WINDRES) -i fesszlomki_private.rc --input-format=rc -o fesszlomki_private.res -O coff $(WINDRESFLAGS) 
+
