@@ -1,0 +1,37 @@
+# Project: cas
+# Makefile created by Red Panda C++ 1.1.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = cas_private.res
+OBJ      = main.o hlavicka.o $(RES)
+LINKOBJ  = main.o hlavicka.o $(RES)
+CLEANOBJ  =  main.o hlavicka.o cas_private.res cas.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = cas.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -Wextra -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -Wextra -D__DEBUG__
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp hlavicka.h
+	$(CPP) -c C:/Users/root/Desktop/zpk_prg/cas/main.cpp -o main.o $(CXXFLAGS) 
+
+hlavicka.o: hlavicka.cpp hlavicka.h
+	$(CPP) -c C:/Users/root/Desktop/zpk_prg/cas/hlavicka.cpp -o hlavicka.o $(CXXFLAGS) 
+
+cas_private.res: cas_private.rc 
+	$(WINDRES) -i cas_private.rc --input-format=rc -o cas_private.res -O coff 
+
