@@ -1,0 +1,37 @@
+# Project: knizky
+# Makefile created by Red Panda C++ 1.1.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = knizky_private.res
+OBJ      = main.o kniha.o $(RES)
+LINKOBJ  = main.o kniha.o $(RES)
+CLEANOBJ  =  main.o kniha.o knizky_private.res knizky.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = knizky.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -Wextra -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -Wextra -D__DEBUG__
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp kniha.h
+	$(CPP) -c C:/Users/root/Desktop/zpk_prg/knihovna/knizky/main.cpp -o main.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+kniha.o: kniha.cpp kniha.h
+	$(CPP) -c C:/Users/root/Desktop/zpk_prg/knihovna/knizky/kniha.cpp -o kniha.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+knizky_private.res: knizky_private.rc 
+	$(WINDRES) -i knizky_private.rc --input-format=rc -o knizky_private.res -O coff 
+
