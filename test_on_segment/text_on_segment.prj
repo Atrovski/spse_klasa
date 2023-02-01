@@ -1,0 +1,3 @@
+vhdl work "citac.vhd"
+vhdl work "../../puls.vhd"
+vhdl work "text_on_segment.vhd"

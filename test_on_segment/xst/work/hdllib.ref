@@ -1,0 +1,6 @@
+EN puls NULL /home/q05/4.B/zpk/puls.vhd sub00/vhpl00 1675236783
+AR counters_1 archi /home/q05/4.B/zpk/spse_text_segment/test_on_segment/citac.vhd sub00/vhpl04 1675236782
+EN text_on_segment NULL /home/q05/4.B/zpk/spse_text_segment/test_on_segment/text_on_segment.vhd sub00/vhpl02 1675236785
+AR puls behavioral /home/q05/4.B/zpk/puls.vhd sub00/vhpl01 1675236784
+AR text_on_segment behavioral /home/q05/4.B/zpk/spse_text_segment/test_on_segment/text_on_segment.vhd sub00/vhpl05 1675236786
+EN counters_1 NULL /home/q05/4.B/zpk/spse_text_segment/test_on_segment/citac.vhd sub00/vhpl03 1675236781
