@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 class Kniha
 {
@@ -19,6 +20,7 @@ public:
 	float getCena() const;
 	friend std::ostream& operator<< (std::ostream &out, const Kniha &kniha);
 	friend std::istream& operator>> (std::istream &in, Kniha &kniha);
+	
 };
 class Knihovna
 {
@@ -30,6 +32,14 @@ public:
 	void pridatKniha(Kniha kniha);
 	void vypisKnih();
 	Kniha najitKniha(std::string nazev);
+	
+	bool savetofile();
+	bool loadfromfile();
+	void lowestPrice();
+	void highestPrice();
+	void sortByPrice();
+	void sortByPriceDescending();
+	void editBook(int id, std::string newNazev, double newCena);
 };
 
 #endif
