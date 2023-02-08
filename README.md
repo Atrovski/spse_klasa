@@ -2,7 +2,7 @@
 
 <p align="left"> <a href="https://twitter.com/atromental" target="blank"><img src="https://img.shields.io/twitter/follow/atromental?logo=twitter&style=for-the-badge" alt="atromental" /></a> </p>
 
-- 🔭 Momentalne pracuju na [Knihovne v cpp](kniHOVNA.cpp)
+- 🔭 Momentalne pracuju na [Knihovne v cpp](https://github.com/Atrovski/spse_klasa/tree/main/knizky)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
