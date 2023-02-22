@@ -31,6 +31,12 @@ float Kniha::getCena() const
 {
 	return cena;
 }
+void Kniha::setID(int newID) 
+{ ID = newID; }
+void Kniha::setNazev(std::string newNazev) 
+{ nazev = newNazev; }
+void Kniha::setCena(int newCena) 
+{ cena = newCena; }
 
 std::ostream& operator<< (std::ostream &out, const Kniha &kniha)
 {
@@ -67,14 +73,14 @@ void Knihovna::vypisKnih()
 {
 	std::cout << "knihovna obsahuje nasledujici knihy:" << std::endl;
 	
-	for (int i = 0; i < knihy.size(); i++)
+	for (std::vector<Kniha>::size_type i = 0; i < knihy.size(); i++)
 	{
 		std::cout << knihy[i];
 	}
 }
 Kniha Knihovna::najitKniha(std::string nazev)
 {
-	for (int i = 0; i < knihy.size(); i++)
+	for (std::vector<Kniha>::size_type i = 0; i < knihy.size(); i++)
 	{
 		if (knihy[i].getNazev() == nazev)
 		{
@@ -85,13 +91,12 @@ Kniha Knihovna::najitKniha(std::string nazev)
 	return Kniha();
 }
 bool Knihovna::savetofile(){
-	int i=0;
 	std::ofstream file;
 	file.open("knihy.txt");
 	if(file.fail()){
 		return false;
 	}
-	for(i=0;i<knihy.size();i++){
+	for (std::vector<Kniha>::size_type i = 0; i < knihy.size(); i++){
 		file<<knihy[i].getID()<<"/"<<knihy[i].getNazev()<<"/"<<knihy[i].getCena()<< "/" << std::endl;
 	}
 	file.close();
@@ -127,10 +132,9 @@ bool Knihovna::loadfromfile()
 	return true;
 }
 void Knihovna::lowestPrice(){
-	int i;
 	double lowest = knihy[0].getCena();
 	int lowestIndex = 0;
-	for(i = 1; i < knihy.size(); i++){
+	for (std::vector<Kniha>::size_type i = 0; i < knihy.size(); i++){
 		if(knihy[i].getCena() < lowest){
 			lowest = knihy[i].getCena();
 			lowestIndex = i;
@@ -140,7 +144,7 @@ void Knihovna::lowestPrice(){
 }
 void Knihovna::highestPrice(){
 	double maxPrice = 0;
-	for(int i=0; i < knihy.size(); i++){
+	for (std::vector<Kniha>::size_type i = 0; i < knihy.size(); i++){
 		if(knihy[i].getCena() > maxPrice){
 			maxPrice = knihy[i].getCena();
 		}
@@ -157,11 +161,33 @@ void Knihovna::sortByPriceDescending(){
 		return a.getCena() > b.getCena();
 		});
 }
-void Knihovna::editBook(int id, std::string newNazev, double newCena) {
-	for (int i = 0; i < knihy.size(); i++) {
+void Knihovna::editBook() {
+	int id;
+	std::cout << "Zadejte ID knihy k editaci: ";
+	std::cin >> id;
+	int index = -1;
+	for (std::vector<Kniha>::size_type i = 0; i < knihy.size(); i++) {
 		if (knihy[i].getID() == id) {
-			knihy[i].setNazev(newNazev);
-			knihy[i].setCena(newCena);
+			index = i;
+			break;
 		}
 	}
+	if (index == -1) {
+		std::cout << "Kniha s ID " << id << " nebyla nalezena." << std::endl;
+	}
+	int newID;
+	std::string newNazev;
+	int newCena;
+	std::cout << "Zadejte nove ID: ";
+	std::cin >> newID;
+	std::cin.ignore();
+	std::cout << "Zadejte nove jmeno knihy: ";
+	std::getline(std::cin, newNazev);
+	std::cout << "Zadejte novou cenu: ";
+	std::cin >> newCena;
+	knihy[index].setID(newID);
+	knihy[index].setNazev(newNazev);
+	knihy[index].setCena(newCena);
+	std::cout << "Kniha s ID " << id << " byla uspesne upravena." << std::endl;
+	
 }

@@ -27,10 +27,10 @@ $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
 main.o: main.cpp kniha.h
-	$(CPP) -c C:/Users/root/Desktop/zpk_prg/knihovna/knizky/main.cpp -o main.o $(CXXFLAGS) 
+	$(CPP) -c C:/Users/klient/Desktop/knizky/main.cpp -o main.o $(CXXFLAGS) 
 
 kniha.o: kniha.cpp kniha.h
-	$(CPP) -c C:/Users/root/Desktop/zpk_prg/knihovna/knizky/kniha.cpp -o kniha.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+	$(CPP) -c C:/Users/klient/Desktop/knizky/kniha.cpp -o kniha.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 knizky_private.res: knizky_private.rc 
 	$(WINDRES) -i knizky_private.rc --input-format=rc -o knizky_private.res -O coff 

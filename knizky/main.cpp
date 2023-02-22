@@ -90,15 +90,10 @@ int main()
 	{
 		knihovna.sortByPriceDescending();
 	}
-	/*
 	else if (volba == 10)
 	{
-		int id;
-		int newID, newCena;
-		std::string newNazev;
-	    knihovna.editBook(id, newID, newNazev, newCena);
+		knihovna.editBook();
 	}
-	*/
 	} while (volba != 0);
 	
 	return 0;

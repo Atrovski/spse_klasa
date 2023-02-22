@@ -18,6 +18,9 @@ public:
 	int getID() const;
 	std::string getNazev() const;
 	float getCena() const;
+	void setID(int newID);
+	void setNazev(std::string newNazev);
+	void setCena(int newCena);
 	friend std::ostream& operator<< (std::ostream &out, const Kniha &kniha);
 	friend std::istream& operator>> (std::istream &in, Kniha &kniha);
 	
@@ -39,7 +42,7 @@ public:
 	void highestPrice();
 	void sortByPrice();
 	void sortByPriceDescending();
-	void editBook(int id, std::string newNazev, double newCena);
+	void editBook();
 };
 
 #endif
