@@ -1,8 +1,0 @@
-Release 14.1 Drc P.15xf (lin64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
-
-Wed Feb  1 08:33:36 2023
-
-drc -z text_on_segment.ncd text_on_segment.pcf
-
-DRC detected 0 errors and 0 warnings.
