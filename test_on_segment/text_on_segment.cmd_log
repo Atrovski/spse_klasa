@@ -1,6 +1,0 @@
-xst -intstyle ise -ifn "/home/q05/4.B/zpk/spse_text_segment/test_on_segment/text_on_segment.xst" -ofn "/home/q05/4.B/zpk/spse_text_segment/test_on_segment/text_on_segment.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s250e-cp132-4 text_on_segment.ngc text_on_segment.ngd  
-map -intstyle ise -p xc3s250e-cp132-4 -cm area -ir off -pr off -c 100 -o text_on_segment_map.ncd text_on_segment.ngd text_on_segment.pcf 
-par -w -intstyle ise -ol high -t 1 text_on_segment_map.ncd text_on_segment.ncd text_on_segment.pcf 
-trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml text_on_segment.twx text_on_segment.ncd -o text_on_segment.twr text_on_segment.pcf 
-bitgen -intstyle ise -f text_on_segment.ut text_on_segment.ncd 

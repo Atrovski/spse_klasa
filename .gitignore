@@ -1,0 +1,4 @@
+# Ignore development files
+
+*.exe
+*.o
